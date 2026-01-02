@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ALOKA THE PEACE DOG</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      body {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease 0.2s, visibility 0.2s ease 0.2s;
+      }
+
+      .loaded body {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @keyframes start {
+        0% {
+          scale: 1;
+        }
+
+        15% {
+          scale: 1.6;
+        }
+
+        35% {
+          scale: 1;
+        }
+
+        99% {
+          scale: 25;
+        }
+
+        100% {
+          scale: 25;
+          display: none;
+        }
+      }
+
+      .start {
+        pointer-events: none;
+        position: fixed;
+        z-index: 20;
+        top: -10vh;
+        left: -10vw;
+        width: 120vw;
+        height: 120vh;
+        will-change: scale;
+        background: radial-gradient(
+          circle,
+          rgba(255, 220, 68, 0) 0%,
+          rgba(255, 220, 68, 0) 8%,
+          rgba(255, 220, 68, 1) 9%,
+          rgba(255, 220, 68, 1) 100%
+        );
+      }
+
+      .loaded .start {
+        animation: start 2s ease-out 0.4s forwards;
+      }
+    </style>
+    <link rel="stylesheet" href="css/style.min.css?_v=20240901210217" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="start"></div>
+      <div class="menu-open-bg"></div>
+      <header class="header">
+        <div class="header__container">
+          <a href="../" class="header__logo"
+            ><img src="img/logo.png" alt="Logo"
+          /></a>
+          <div class="header__right">
+            <div class="header__menu menu">
+              <button type="button" class="menu__icon icon-menu">
+                <span></span>
+              </button>
+              <nav class="menu__body">
+                <ul class="menu__list">
+                  <li class="menu__item">
+                    <a
+                      href="#"
+                      class="menu__link"
+                      data-goto=".about"
+                      data-goto-top="80"
+                      >About</a
+                    >
+                  </li>
+                  <li class="menu__item">
+                    <a href="#" class="menu__link" data-goto=".how"
+                      >How to buy</a
+                    >
+                  </li>
+                  <li class="menu__item">
+                    <a href="#" class="menu__link" data-goto=".tokenomics"
+                      >Tokenomics</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <a
+              href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0x00000000000000000000000000000000000000"
+              target="_blank"
+              class="header__button"
+              data-da=".menu__body, 991.98"
+              >BUY NOW</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main class="page">
+        <section class="page__hero hero">
+          <div class="hero__container">
+            <h1 class="hero__title">
+              <img src="img/heroTitle.png" alt="ALOKA THE PEACE DOG" />
+            </h1>
+            <div class="hero__right">
+              <div class="hero__image">
+                <img src="img/hero.png" alt="Image" />
+              </div>
+              <a
+                href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0x00000000000000000000000000000000000000"
+                target="_blank"
+                class="hero__button"
+              >
+                <span>BUY NOW</span>
+              </a>
+              <div class="hero__social">
+                <a target="_blank" href="#" class="hero__social-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="43"
+                    height="41"
+                    viewBox="0 0 43 41"
+                    fill="none"
+                  >
+                    <path
+                      d="M35.2629 1.69983L41.7426 2.02936L26.7643 17.4653L42.3017 40.2924L29.2614 39.6292L19.7269 25.7773L7.36079 38.5154L0.877596 38.1857L16.8991 21.6748L1.98233 0.00908228L15.3537 0.689095L23.9657 13.3449L35.2629 1.69983ZM31.2472 35.8491L34.8374 36.0317L13.2163 4.25703L9.36367 4.0611L31.2472 35.8491Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a target="_blank" href="#" class="hero__social-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="44"
+                    height="40"
+                    viewBox="0 0 44 40"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M38.5018 0.984196C39.0273 0.710955 39.6161 0.584648 40.2068 0.618421C40.7976 0.652193 41.3687 0.84481 41.8608 1.17622C42.3529 1.50764 42.7479 1.96573 43.0048 2.50283C43.2617 3.03992 43.371 3.63638 43.3214 4.23012L40.7308 35.1053C40.4782 38.0838 37.4079 40.022 34.6154 38.7681C32.2796 37.719 28.8048 36.0928 25.658 34.3584C24.0845 33.4901 19.2537 30.6932 19.6401 28.4021C19.9729 26.4429 27.1043 18.618 31.1663 13.9798C32.7605 12.1577 31.8964 11.2469 29.9792 12.9585C25.2182 17.208 17.5483 23.7041 14.9898 25.5642C12.7327 27.2044 11.516 27.5498 10.0181 27.418C7.28552 27.1782 4.72918 26.6748 2.62058 25.9824C-0.228714 25.0473 -0.39512 21.2167 2.13958 19.898L38.5018 0.984196Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page__about about" data-watch="navigator">
+          <div class="about__container">
+            <div class="about__image">
+              <img src="img/aboutImage.png" alt="Image" />
+            </div>
+            <div class="about__content">
+              <h2
+                class="about__title"
+                data-watch-threshold="0.8"
+                data-watch-once
+                data-watch
+              >
+                <img src="img/aboutTitle.png" alt="ABOUT ALOKA" />
+              </h2>
+              <div class="about__text">
+                <p>
+                  This peace dog called Aloka is viral all over America, X and
+                  tiktok also usd1 narra
+                  <br />
+                  He began his journey with Buddhist monks and now walks
+                  alongside them on a 120-day peace mission across the U.S.
+                  <br />
+                  Hes capturing the hearts of everyone in America, when he
+                  completes his journey Trump and Elon will definitely talk
+                  about him
+                </p>
+              </div>
+              <a
+                href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0x00000000000000000000000000000000000000"
+                target="_blank"
+                class="about__button"
+                >BUY NOW</a
+              >
+            </div>
+          </div>
+        </section>
+        <section class="page__how how" data-watch="navigator">
+          <div class="how__top">
+            <img src="img/howBgTop.png" alt="Image" />
+          </div>
+          <div class="how__body">
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <img src="img/howBgDecor.png" alt="Decor" />
+            <div class="how__container">
+              <h2
+                class="how__title"
+                data-watch-threshold="0.8"
+                data-watch-once
+                data-watch
+              >
+                <img src="img/howTitle.png" alt="HOW TO BUY" />
+              </h2>
+              <div class="how__items">
+                <div class="how__item">
+                  <h4>STEP 1</h4>
+                  <p>
+					Download and install a secure crypto wallet like MetaMask to store your $ALOKA tokens safely and manage your digital assets.
+                  </p>
+                </div>
+                <div class="how__item">
+                  <h4>STEP 2</h4>
+                  <p>
+					Purchase ETH from a trusted cryptocurrency exchange like Coinbase or Binance and transfer it to your MetaMask wallet.
+                  </p>
+                </div>
+                <div class="how__item">
+                  <h4>STEP 3</h4>
+                  <p>
+					Navigate to Uniswap decentralized exchange and connect your MetaMask wallet by clicking the "Connect Wallet" button in the top right corner.
+                  </p>
+                </div>
+                <div class="how__item reverse">
+                  <h4>STEP 4</h4>
+                  <p>
+					Paste the $ALOKA contract address, enter the amount of ETH you want to swap, and click the swap button to complete your purchase.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="how__bottom">
+            <img src="img/howBgBottom.png" alt="Image" />
+          </div>
+        </section>
+        <section class="page__tokenomics tokenomics" data-watch="navigator">
+          <div
+            class="tokenomics__container"
+            data-watch-threshold="0.65"
+            data-watch-once
+            data-watch
+          >
+            <div class="tokenomics__content">
+              <div class="tokenomics__items">
+                <div class="tokenomics__item">
+                  <img src="img/tokenomicsItem1.png" alt="Image" />
+                </div>
+                <div class="tokenomics__item">
+                  <img src="img/tokenomicsItem2.png" alt="Image" />
+                </div>
+                <div class="tokenomics__item">
+                  <img src="img/tokenomicsItem3.png" alt="Image" />
+                </div>
+              </div>
+              <div class="tokenomics__ca">
+                <span>CA:</span>
+                <span>0x00000000000000000000000000000000000000</span>
+                <button type="button" class="copy-ca-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="45"
+                    height="51"
+                    viewBox="0 0 45 51"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M39.8508 0.588576L6.70509 3.6088L7.39348 11.1636L0.849522 11.7599L4.35949 50.2804L36.7344 47.3304L36.1836 41.2862L43.4984 40.6197L39.8508 0.588576ZM35.8051 37.1321L38.8803 36.8518L35.9898 5.12906L11.3232 7.37666L11.633 10.7773L33.2244 8.80989L35.8051 37.1321ZM8.22053 45.7399L5.46762 15.5277L29.3634 13.3504L32.1163 43.5626L8.22053 45.7399Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="tokenomics__image">
+              <img src="img/tokenomics.png" alt="Image" />
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </section>
+        <section class="page__join join">
+          <div class="join__container">
+            <div class="join__body">
+              <img src="img/join.png" alt="Image" />
+              <a
+                href="https://app.uniswap.org/#/swap?inputCurrency=eth&outputCurrency=0x00000000000000000000000000000000000000"
+                target="_blank"
+                class="join__button"
+                >BUY NOW</a
+              >
+              <div class="join__social">
+                <a target="_blank" href="#" class="join__social-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="40"
+                    viewBox="0 0 42 40"
+                    fill="none"
+                  >
+                    <path
+                      d="M33.4992 1.45073L39.9858 1.58345L25.4829 17.4668L41.706 39.8119L28.6515 39.5447L18.701 25.9886L6.7272 39.0962L0.236988 38.9634L15.7501 21.9738L0.182581 0.770803L13.5684 1.04469L22.5606 13.4333L33.4992 1.45073ZM30.5217 35.7061L34.1158 35.7797L11.5403 4.67585L7.68349 4.59694L30.5217 35.7061Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a target="_blank" href="#" class="join__social-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="43"
+                    height="39"
+                    viewBox="0 0 43 39"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M37.638 0.633568C38.1549 0.344506 38.7396 0.200388 39.3311 0.216216C39.9226 0.232043 40.4993 0.407239 41.0013 0.723565C41.5032 1.03989 41.912 1.48578 42.185 2.01484C42.4581 2.54389 42.5855 3.13675 42.5539 3.73173L40.9015 34.6713C40.7395 37.6561 37.7294 39.6866 34.9001 38.518C32.5335 37.5403 29.011 36.0203 25.813 34.3822C24.2139 33.5621 19.3004 30.9131 19.6171 28.6113C19.8903 26.6429 26.7809 18.6052 30.7003 13.8458C32.2385 11.9762 31.3471 11.092 29.4827 12.861C24.8529 17.253 17.3837 23.979 14.8828 25.9158C12.6766 27.6237 11.4708 28.006 9.96967 27.9197C7.23106 27.7629 4.66062 27.3374 2.53197 26.7092C-0.344386 25.861 -0.626972 22.0372 1.86654 20.6422L37.638 0.633568Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="footer__container">
+            <div class="footer__top-body">
+              <div class="footer__top-items">
+                <a href="#" class="footer__top-item-menu">About</a>
+                <a href="#" class="footer__top-item-menu">How to buy</a>
+                <a href="#" class="footer__top-item-menu">Tokenomics</a>
+                <a target="_blank" href="#" class="footer__top-item-social"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="34"
+                    height="31"
+                    viewBox="0 0 34 31"
+                    fill="none"
+                  >
+                    <path
+                      d="M26.7672 0.383789L31.904 0.383789L20.6812 13.1915L33.8848 30.6164L23.5469 30.6164L15.4509 20.0469L6.18504 30.6164L1.04543 30.6164L13.0499 16.9167L0.383789 0.385183L10.9841 0.385183L18.3026 10.046L26.7672 0.383789ZM24.9651 27.5475L27.8113 27.5475L9.43743 3.29235L6.38325 3.29235L24.9651 27.5475Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a target="_blank" href="#" class="footer__top-item-social"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="31"
+                    viewBox="0 0 36 31"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M31.7907 0.59062C32.2227 0.407482 32.6955 0.344319 33.16 0.407705C33.6244 0.47109 34.0635 0.658706 34.4316 0.951026C34.7996 1.24335 35.0831 1.62968 35.2526 2.06982C35.4221 2.50996 35.4714 2.98782 35.3953 3.45365L31.4306 27.6767C31.046 30.0133 28.5007 31.3533 26.3732 30.1894C24.5937 29.2157 21.9505 27.7155 19.573 26.1501C18.3843 25.3666 14.743 22.8575 15.1905 21.072C15.5751 19.5454 21.6935 13.8088 25.1898 10.3982C26.562 9.05822 25.9362 8.28524 24.3157 9.51779C20.2915 12.578 13.8305 17.2318 11.6942 18.5418C9.80977 19.6969 8.82732 19.8941 7.65258 19.6969C5.50938 19.3377 3.52176 18.7813 1.8995 18.1034C-0.292644 17.1878 -0.186008 14.1522 1.89776 13.2683L31.7907 0.59062Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="footer__top-image">
+                <img src="img/footerImage.png" alt="Image" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <div class="footer__container">
+            <div class="footer__bottom-body">
+              <span>2026 © ALL RIGHTS RESERVED</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/app.min.js?_v=20240901210217"></script>
+  </body>
+</html>
