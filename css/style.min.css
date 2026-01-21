@@ -2068,3 +2068,244 @@ h6 {
     box-shadow: 0 0 0 0 #000;
   }
 }
+/* Gallery Section */
+.gallery {
+  position: relative;
+  z-index: 2;
+  background-color: #ffdc44;
+}
+
+.gallery::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background: url(../img/galleryBG.jpg) center/cover no-repeat;
+}
+
+.gallery__container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffdc44;
+}
+
+.gallery__header {
+  text-align: center;
+  width: 100%;
+}
+
+.gallery__subtitle {
+  color: #F65E00;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: normal;
+}
+
+.gallery__title {
+  position: relative;
+  display: inline-block;
+  color: #000;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+  will-change: transform;
+}
+
+.gallery__title._watcher-view {
+  -webkit-animation: title 0.2s ease-in 0.2s forwards;
+  animation: title 0.2s ease-in 0.2s forwards;
+}
+
+.gallery__title-highlight {
+  color: #F65E00;
+}
+
+.gallery__description {
+  color: #000;
+  font-family: "Berlin Sans FB Demi";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.gallery__item {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 0.1875rem solid #000;
+  box-shadow: -0.25rem 0.25rem 0 0 #000;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s, box-shadow 0.2s ease 0s;
+  transition: transform 0.2s ease 0s, box-shadow 0.2s ease 0s,
+    -webkit-transform 0.2s ease 0s;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 17.5rem;
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: -webkit-transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s;
+  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+}
+
+.gallery__item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 1.875rem 1.25rem 1.25rem;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  transition: -webkit-transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s;
+  transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+}
+
+.gallery__item-overlay p {
+  color: #ffdc44;
+  font-family: "Berlin Sans FB Demi";
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 120%;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (min-width: 90.625em) {
+  .page__gallery {
+    padding-top: 5rem;
+  }
+  .gallery__subtitle {
+    margin-bottom: 1rem;
+  }
+  .gallery__title {
+    font-size: 3.5rem;
+  }
+  .gallery__title {
+    margin-bottom: 1.25rem;
+  }
+  .gallery__description {
+    font-size: 1.25rem;
+  }
+  .gallery__description {
+    margin-bottom: 3.75rem;
+  }
+  .gallery__grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .page__gallery {
+    padding-top: 2.5rem;
+  }
+  .gallery__subtitle {
+    margin-bottom: 0.5rem;
+  }
+  .gallery__title {
+    font-size: 2rem;
+  }
+  .gallery__title {
+    margin-bottom: 0.75rem;
+  }
+  .gallery__description {
+    font-size: 0.875rem;
+  }
+  .gallery__description {
+    margin-bottom: 2rem;
+  }
+  .gallery__grid {
+    gap: 1rem;
+  }
+  .gallery__item img {
+    height: 12.5rem;
+  }
+}
+
+@media (min-width: 20em) and (max-width: 90.625em) {
+  .page__gallery {
+    padding-top: clamp(2.5rem, 2.1460176991rem + 1.7699115044vw, 5rem);
+  }
+  .gallery__subtitle {
+    margin-bottom: clamp(0.5rem, 0.4292035398rem + 0.3539823009vw, 1rem);
+  }
+  .gallery__title {
+    font-size: clamp(2rem, 1.4690265487rem + 2.6548672566vw, 3.5rem);
+  }
+  .gallery__title {
+    margin-bottom: clamp(0.75rem, 0.6438053097rem + 0.5309734513vw, 1.25rem);
+  }
+  .gallery__description {
+    font-size: clamp(0.875rem, 0.7688053097rem + 0.5309734513vw, 1.25rem);
+  }
+  .gallery__description {
+    margin-bottom: clamp(2rem, 1.4690265487rem + 2.6548672566vw, 3.75rem);
+  }
+  .gallery__grid {
+    gap: clamp(1rem, 0.9292035398rem + 0.3539823009vw, 1.5rem);
+  }
+}
+
+@media (max-width: 61.99875em) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery__item {
+    max-width: 32.5rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 61.99875em) and (max-width: 90.625em) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 90.625em) {
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (any-hover: hover) {
+  .gallery__item:hover {
+    -webkit-transform: translate(-0.25rem, 0.25rem);
+    transform: translate(-0.25rem, 0.25rem);
+    box-shadow: 0 0 0 0 #000;
+  }
+  .gallery__item:hover img {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  .gallery__item:hover .gallery__item-overlay {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
